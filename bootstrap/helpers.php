@@ -2,5 +2,5 @@
 
 function test()
 {
-    echo '111';
+    return 'ok';
 }
