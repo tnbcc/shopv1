@@ -48,6 +48,16 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof \Illuminate\Auth\Access\AuthorizationException) {
+            $msg = "您没有操作权限";
+
+            if ($request->expectsJson()) {
+                return response()->json(['msg' => $msg, 'code' => 403],403);
+            }
+
+            return response()->view('pages.error',['msg' => $msg]);
+        }
+
         return parent::render($request, $exception);
     }
 }
