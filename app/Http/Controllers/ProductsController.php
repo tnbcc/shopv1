@@ -61,7 +61,13 @@ class ProductsController extends Controller
             throw new InvalidRequestException('商品未上架');
         }
 
-        return view('products.show',compact('product'));
+        $favored = false;
+
+        if ($user = $request->user()) {
+            $favored = boolval($user->favoriteProducts()->find($product->id));
+        }
+
+        return view('products.show',compact('product','favored'));
     }
 
     public function favor(Product $product, Request $request)
