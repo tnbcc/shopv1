@@ -25,6 +25,14 @@ class OrderController extends Controller
         return view('order.index', compact('orders'));
     }
 
+    public function show(Order $order, Request $request)
+    {
+        $this->authorize('own', $order);
+        $order = $order->load(['items.product', 'items.productSku']);
+
+        return view('order.show', compact('order'));
+    }
+
     public function store(OrderRequest $request)
     {
         $user  = $request->user();
