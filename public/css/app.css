@@ -8841,3 +8841,8 @@ body {
   padding-right: 20px;
 }
 
+.order-show-page .payment-buttons {
+  margin-top: 10px;
+  padding-right: 10px;
+}
+
