@@ -12,3 +12,4 @@ yarn-error.log
 .env
 /public/fonts
 /public/mix-manifest.json
+/resources/wechat_pay
