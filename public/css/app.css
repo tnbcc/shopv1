@@ -8841,7 +8841,8 @@ body {
   padding-right: 20px;
 }
 
-.order-show-page .payment-buttons {
+.order-show-page .payment-buttons,
+.order-show-page .receive-button {
   margin-top: 10px;
   padding-right: 10px;
 }
