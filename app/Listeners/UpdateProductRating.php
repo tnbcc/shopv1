@@ -8,7 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use DB;
 
-class UpdateProductRating
+class UpdateProductRating implements ShouldQueue
 {
 
     public function handle(OrderReviewed $event)
