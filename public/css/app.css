@@ -8842,7 +8842,8 @@ body {
 }
 
 .order-show-page .payment-buttons,
-.order-show-page .receive-button {
+.order-show-page .receive-button,
+.order-show-page .refund-button {
   margin-top: 10px;
   padding-right: 10px;
 }
