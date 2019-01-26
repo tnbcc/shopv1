@@ -34,6 +34,8 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('payment/{order}/wechat', 'PaymentController@payByWechat')->name('payment.wechat');
         Route::get('payment/alipay/return', 'PaymentController@alipayReturn')->name('payment.alipay.return');
 
+        Route::get('coupon_codes/{code}', 'CouponCodesController@show')->name('coupon_codes.show');
+
     });
     // 结束
 });
