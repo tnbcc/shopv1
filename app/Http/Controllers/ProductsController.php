@@ -70,6 +70,8 @@ class ProductsController extends Controller
         ];
         $category = $category ?? null;
 
+        //$categoryTree = $categoryService->getCategoryTree();
+
         return view('products.index',compact('products','filters', 'category'));
     }
 
