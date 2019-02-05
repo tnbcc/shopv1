@@ -14,7 +14,7 @@ use Carbon\Carbon;
 
 class OrderService
 {
-    public function store(User $user, UserAddress $address, $remark, $items, CouponCode $coupon)
+    public function store(User $user, UserAddress $address, $remark, $items, CouponCode $coupon = null)
     {
 
         if ($coupon) {
