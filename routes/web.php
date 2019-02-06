@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('cart', 'CartController@index')->name('cart.index');
         Route::delete('cart/{sku}','CartController@remove')->name('cart.remove');
         Route::post('orders', 'OrderController@store')->name('order.store');
+        Route::post('crowdfunding_orders', 'OrderController@crowdfunding')->name('crowdfunding_order.store');
         Route::get('orders', 'OrderController@index')->name('order.index');
         Route::get('orders/{order}', 'OrderController@show')->name('order.show');
         Route::post('orders/{order}/received', 'OrderController@received')->name('order.received');
