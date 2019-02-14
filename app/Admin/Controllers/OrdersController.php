@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\Exceptions\InternalException;
 use App\Exceptions\InvalidRequestException;
 use App\Http\Requests\Admin\HandleRefundRequest;
+use App\Models\CrowdfundingProduct;
 use App\Models\Order;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\HasResourceActions;
@@ -122,6 +123,10 @@ class OrdersController extends Controller
         // 判断当前订单发货状态是否为未发货
         if ($order->ship_status !== Order::SHIP_STATUS_PENDING) {
             throw new InvalidRequestException('该订单已发货');
+        }
+
+        if ($order->type === Order::TYPE_CROWDFUNDING && $order->items[0]->product->crowdfunding->status !== CrowdfundingProduct::STATUS_SUCCESS) {
+            throw new InvalidRequestException('众筹订单只能在众筹成功之后发货');
         }
         $data = $this->validate($request, [
             'express_company' => ['required'],
