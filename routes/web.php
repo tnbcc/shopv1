@@ -31,8 +31,10 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('orders/{order}/review', 'OrderController@review')->name('order.review.show');
         Route::post('orders/{order}/review', 'OrderController@sendReview')->name('order.review.store');
         Route::post('orders/{order}/apply_refund', 'OrderController@applyRefund')->name('order.apply_refund');
+        Route::post('payment/{order}/installment', 'PaymentController@payByInstallment')->name('payment.installment');
         Route::get('payment/{order}/alipay', 'PaymentController@payByAlipay')->name('payment.alipay');
         Route::get('payment/{order}/wechat', 'PaymentController@payByWechat')->name('payment.wechat');
+
         Route::get('payment/alipay/return', 'PaymentController@alipayReturn')->name('payment.alipay.return');
 
         Route::get('coupon_codes/{code}', 'CouponCodesController@show')->name('coupon_codes.show');
